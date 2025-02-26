@@ -1,13 +1,20 @@
+import styles from "./App.module.scss";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import Homepage from "./pages/Homepage/Homepage";
+import Apartment from "./pages/Apartment/Apartment";
+import About from "./pages/about/About";
+import Error404 from "./pages/Error404/Error404";
+
 function App() {
   return (
-    <>
-      <h1>Kasa</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quidem saepe in expedita corrupti laborum
-        excepturi temporibus, incidunt impedit quae itaque molestias fugit odit nemo voluptate voluptatum dignissimos
-        alias. Quae?
-      </p>
-    </>
+    <div className={`${styles.appContainer}`}>
+      <Header />
+      <main className="flex-fill container">
+        <Homepage />
+      </main>
+      <Footer />
+    </div>
   );
 }
 

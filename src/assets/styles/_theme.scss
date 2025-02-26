@@ -1,0 +1,17 @@
+body {
+  font-family: var(--font-family);
+  font-weight: var(--fw-regular);
+  font-size: 1.125rem;
+
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+
+  &:hover,
+  &.active {
+    text-decoration: underline;
+  }
+}
