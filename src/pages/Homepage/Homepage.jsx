@@ -12,7 +12,7 @@ function Homepage() {
     document.title = "Kasa | Location d'appartements entre particuliers";
   }, []);
 
-  const { isLoading, hasError, data: dataApartments } = useFetch(window.location.origin + "/data/apartments.json");
+  const { isLoading, hasError, data: ApartmentsData } = useFetch(window.location.origin + "/data/apartments.json");
 
   if (hasError) {
     return <Error title="500" subtitle="Une erreur est survenue, veuillez réessayer plus tard." />;
@@ -26,7 +26,7 @@ function Homepage() {
     <>
       <Hero image={heroImg} altText="Chez vous, partout et ailleurs" title="Chez vous, partout et ailleurs" />
       <section className={styles.cardsWrapper}>
-        {dataApartments.map(apartment => (
+        {ApartmentsData.map(apartment => (
           <CardApartment key={apartment.id} id={apartment.id} src={apartment.cover} title={apartment.title} />
         ))}
       </section>
