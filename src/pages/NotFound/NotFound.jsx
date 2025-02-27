@@ -1,7 +1,7 @@
-import styles from "./NotFound.module.scss";
+import Error from "../../components/Error/Error";
 
 function NotFound() {
-  return <h1>404</h1>;
+  return <Error title="404" subtitle="Oups! La page que vous demandez n'existe pas." />;
 }
 
 export default NotFound;

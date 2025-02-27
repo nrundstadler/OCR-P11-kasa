@@ -1,6 +1,6 @@
+import { NavLink } from "react-router-dom";
 import styles from "./Header.module.scss";
 import logo from "../../assets/images/logo.svg";
-import { NavLink } from "react-router-dom";
 
 function Header() {
   return (
@@ -14,7 +14,7 @@ function Header() {
             <NavLink to="/">Accueil</NavLink>
           </li>
           <li>
-            <NavLink to="/about">A Propos</NavLink>
+            <NavLink to="/a-propos">A Propos</NavLink>
           </li>
         </ul>
       </nav>
