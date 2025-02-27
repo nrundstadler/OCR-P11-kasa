@@ -4,7 +4,7 @@ import App from "./App";
 import Homepage from "./pages/Homepage/Homepage";
 import About from "./pages/About/About";
 import Apartment from "./pages/Apartment/Apartment";
-import NotFound from "./pages/NotFound/NotFound";
+import Error from "./components/Error/Error";
 
 export const router = createBrowserRouter([
   {
@@ -16,7 +16,7 @@ export const router = createBrowserRouter([
         element: <Homepage />,
       },
       {
-        path: "/appartement",
+        path: "/appartement/:id",
         element: <Apartment />,
       },
       {
@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "*", // Catch-all
-        element: <NotFound />, // Display the 404 page for unmatched routes
+        element: <Error title="404" subtitle="Oups! La page que vous demandez n'existe pas." />, // Display the 404 page for unmatched routes
       },
     ],
   },

@@ -1,7 +1,10 @@
 import { useEffect } from "react";
+import { useFetch } from "../../hooks/useFetch";
 import styles from "./Homepage.module.scss";
 import Hero from "../../components/Hero/Hero";
 import heroImg from "../../assets/images/hero/home_1240.jpg";
+import Error from "../../components/Error/Error";
+import Loading from "../../components/Loading/Loading";
 import CardApartment from "./CardApartment/CardApartment";
 
 function Homepage() {
@@ -9,42 +12,23 @@ function Homepage() {
     document.title = "Kasa | Location d'appartements entre particuliers";
   }, []);
 
+  const { isLoading, hasError, data: dataApartments } = useFetch(window.location.origin + "/data/apartments.json");
+
+  if (hasError) {
+    return <Error title="500" subtitle="Une erreur est survenue, veuillez réessayer plus tard." />;
+  }
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
     <>
       <Hero image={heroImg} altText="Chez vous, partout et ailleurs" title="Chez vous, partout et ailleurs" />
       <section className={styles.cardsWrapper}>
-        <CardApartment
-          src="https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg"
-          title="Appartement cosy"
-        />
-        <CardApartment
-          src="https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-1-1.jpg"
-          title="Magnifique appartement proche Canal Saint Martin"
-        />
-        <CardApartment
-          src="https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-2-1.jpg"
-          title="Studio de charme - Buttes Chaumont"
-        />
-        <CardApartment
-          src="https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-3-1.jpg"
-          title="Nid douillet au coeur du 11ème"
-        />
-        <CardApartment
-          src="https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-1-1.jpg"
-          title="Magnifique appartement proche Canal Saint Martin"
-        />
-        <CardApartment
-          src="https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-1-1.jpg"
-          title="Magnifique appartement proche Canal Saint Martin"
-        />
-        <CardApartment
-          src="https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-1-1.jpg"
-          title="Magnifique appartement proche Canal Saint Martin"
-        />
-        <CardApartment
-          src="https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-1-1.jpg"
-          title="Magnifique appartement proche Canal Saint Martin"
-        />
+        {dataApartments.map(apartment => (
+          <CardApartment key={apartment.id} id={apartment.id} src={apartment.cover} title={apartment.title} />
+        ))}
       </section>
     </>
   );

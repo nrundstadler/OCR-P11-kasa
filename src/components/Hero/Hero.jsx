@@ -1,7 +1,6 @@
 import styles from "./Hero.module.scss";
 
 function Hero({ image, altText, title }) {
-  console.log(title);
   return (
     <section className={styles.hero}>
       <img src={image} alt={altText} />
