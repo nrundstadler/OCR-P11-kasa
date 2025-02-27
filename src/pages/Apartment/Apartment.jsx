@@ -22,14 +22,14 @@ function Apartment() {
     }
   }, [thisApartment]);
 
-  // Display an error message if there was an error fetching the data or if the data is null
-  if (hasError || dataApartments === null) {
-    return <Error title="500" subtitle="Une erreur est survenue, veuillez réessayer plus tard." />;
-  }
-
   // Display a loading message while the data is being fetched
   if (isLoading) {
     return <Loading />;
+  }
+
+  // Display an error message if there was an error fetching the data or if the data is null
+  if (hasError || dataApartments === null) {
+    return <Error title="500" subtitle="Une erreur est survenue, veuillez réessayer plus tard." />;
   }
 
   // Display a 404 error message if the apartment with the specified 'id' was not found

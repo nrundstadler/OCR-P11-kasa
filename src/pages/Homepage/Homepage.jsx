@@ -14,12 +14,12 @@ function Homepage() {
 
   const { isLoading, hasError, data: ApartmentsData } = useFetch(window.location.origin + "/data/apartments.json");
 
-  if (hasError) {
-    return <Error title="500" subtitle="Une erreur est survenue, veuillez réessayer plus tard." />;
-  }
-
   if (isLoading) {
     return <Loading />;
+  }
+
+  if (hasError) {
+    return <Error title="500" subtitle="Une erreur est survenue, veuillez réessayer plus tard." />;
   }
 
   return (
