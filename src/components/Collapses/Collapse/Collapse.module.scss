@@ -1,0 +1,51 @@
+@use "../../../assets/styles/mixins" as mixin;
+
+.collapse {
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.collapseHeader {
+  cursor: pointer;
+  background-color: var(--color-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.625rem 0.938rem;
+
+  &:focus-visible {
+    outline: none;
+    background-color: var(--color-primary-dark);
+  }
+}
+
+.collapseTitle {
+  color: #fff;
+}
+
+.chevron {
+  transition: transform 0.3s ease;
+
+  @include mixin.xs {
+    height: 9px;
+  }
+}
+
+.chevronOpen {
+  transform: rotate(-180deg);
+}
+
+.collapseBody {
+  overflow: hidden;
+  transition: height 0.3s ease-out;
+  background-color: #f6f6f6;
+}
+
+.collapseContent {
+  padding: 1.25rem;
+  line-height: 1.4em;
+
+  @include mixin.xs {
+    padding: 1rem;
+  }
+}

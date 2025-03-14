@@ -1,3 +1,5 @@
+@use "../../assets/styles/mixins" as mixin;
+
 .cardsWrapper {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -5,4 +7,10 @@
   background-color: #f0f0f0;
   padding: 50px;
   border-radius: 25px;
+
+  @include mixin.xs {
+    padding: 0;
+    background-color: white;
+    gap: 20px;
+  }
 }

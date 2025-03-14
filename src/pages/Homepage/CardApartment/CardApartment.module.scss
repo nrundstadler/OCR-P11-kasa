@@ -1,3 +1,5 @@
+@use "../../../assets/styles/mixins" as mixin;
+
 .link {
   transition: transform 0.3s ease-in-out;
 
@@ -13,6 +15,10 @@
   border-radius: 10px;
   position: relative;
   overflow: hidden;
+
+  @include mixin.xs {
+    height: 255px;
+  }
 
   &::before {
     content: "";

@@ -1,3 +1,5 @@
+@use "../../assets/styles/mixins" as mixin;
+
 .error {
   gap: 2rem;
 
@@ -5,18 +7,33 @@
     font-size: 18rem;
     line-height: 18rem;
     color: var(--color-primary);
+
+    @include mixin.xs {
+      font-size: 6rem;
+      line-height: 6rem;
+    }
   }
 
   h2 {
     font-size: 2.25rem;
     color: var(--color-primary);
     font-weight: var(--fw-medium);
+
+    @include mixin.xs {
+      font-size: 1.125rem;
+      text-align: center;
+    }
   }
 
   a {
     font-size: 1.125rem;
+    font-weight: var(--fw-medium);
     text-decoration: underline;
     padding-top: 1rem;
+
+    @include mixin.xs {
+      font-size: 0.875rem;
+    }
 
     &:hover {
       color: var(--color-primary);

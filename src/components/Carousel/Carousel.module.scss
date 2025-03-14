@@ -1,0 +1,62 @@
+@use "../../assets/styles/mixins" as mixin;
+
+.carousel {
+  overflow: hidden;
+  height: 415px;
+  width: 100%;
+  border-radius: 25px;
+
+  @include mixin.xs {
+    border-radius: 10px;
+    height: 255px;
+  }
+}
+
+.carouselTrack {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%;
+}
+
+.carouselPicture {
+  flex: 0 0 100%;
+  object-fit: cover;
+}
+
+.carousel {
+  position: relative;
+
+  button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 8rem;
+    cursor: pointer;
+    padding: 0 1rem;
+    z-index: 1;
+
+    @include mixin.xs {
+      font-size: 4rem;
+    }
+
+    &.btnPrev {
+      left: 0;
+    }
+
+    &.btnNext {
+      right: 0;
+    }
+
+    &:hover {
+      color: #f6f6f6;
+    }
+
+    &:focus {
+      outline: none;
+      color: #f6f6f6;
+    }
+  }
+}

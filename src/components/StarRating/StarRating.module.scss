@@ -1,0 +1,20 @@
+@use "../../assets/styles/mixins" as mixin;
+
+.starRating {
+  display: flex;
+  gap: 1rem;
+
+  @include mixin.xs {
+    gap: 0.4rem;
+  }
+}
+
+.starImg {
+  @include mixin.xs {
+    width: 13px;
+  }
+}
+
+.starImgEmpty {
+  filter: grayscale(100%) brightness(170%);
+}

@@ -1,0 +1,19 @@
+@use "../../../assets/styles/mixins" as mixin;
+
+.collapseContainer {
+  display: grid;
+  gap: 30px 5%;
+  width: 100%;
+
+  @include mixin.xs {
+    gap: 20px 5%;
+  }
+}
+
+.twoColumns {
+  grid-template-columns: 1fr 1fr;
+
+  @include mixin.xs {
+    grid-template-columns: 1fr;
+  }
+}

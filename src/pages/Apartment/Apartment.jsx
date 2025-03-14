@@ -4,6 +4,10 @@ import { useFetch } from "../../hooks/useFetch";
 import Error from "../../components/Error/Error";
 import Loading from "../../components/Loading/Loading";
 import styles from "./Apartment.module.scss";
+import Carousel from "../../components/Carousel/Carousel";
+import StarRating from "../../components/StarRating/StarRating";
+import Collapse from "../../components/Collapses/Collapse/Collapse";
+import CollapsesContainer from "../../components/Collapses/CollapsesContainer/CollapsesContainer";
 
 function Apartment() {
   // Extract the id of the apartment from the URL
@@ -37,11 +41,48 @@ function Apartment() {
     return <Error title="404" subtitle="Oups! La page que vous demandez n'existe pas." />;
   }
 
+  const [firstName, lastName] = thisApartment.host.name.split(" ");
+
   // Render the apartment details
   return (
     <>
-      <h1>Appartement id : {thisApartment.id}</h1>
-      <h2>{thisApartment.title}</h2>
+      {Array.isArray(thisApartment.pictures) && thisApartment.pictures.length > 0 && (
+        <Carousel pictures={thisApartment.pictures} />
+      )}
+      <section className={styles.appartmentDetails}>
+        <div className={styles.appartmentInfo}>
+          <h1>{thisApartment.title}</h1>
+          <h2 className={styles.location}>{thisApartment.location}</h2>
+          <div className={styles.tagsWraper}>
+            <div className={styles.tag}>Cozy</div>
+            <div className={styles.tag}>Canal</div>
+            <div className={styles.tag}>Paris 10</div>
+          </div>
+        </div>
+        <div className={styles.ratingHostWraper}>
+          <div className={styles.hostWraper}>
+            <div className={styles.hostName}>
+              {firstName}
+              <br />
+              {lastName}
+            </div>
+            <img className={styles.hostPicture} src={thisApartment.host.picture} alt="Propriétaire de l'appartement" />
+          </div>
+          {thisApartment.rating && <StarRating rating={thisApartment.rating} />}
+        </div>
+      </section>
+      <CollapsesContainer columns={2}>
+        <Collapse title="Description" titleLevel={3}>
+          <p>{thisApartment.description}</p>
+        </Collapse>
+        <Collapse title="Équipements" titleLevel={3}>
+          <ul>
+            {thisApartment.equipments.map((equipment, index) => (
+              <li key={index}>{equipment}</li>
+            ))}
+          </ul>
+        </Collapse>
+      </CollapsesContainer>
     </>
   );
 }

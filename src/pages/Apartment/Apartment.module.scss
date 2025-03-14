@@ -1,0 +1,114 @@
+@use "../../assets/styles/mixins" as mixin;
+
+.appartmentDetails {
+  display: flex;
+
+  @include mixin.xs {
+    flex-direction: column;
+  }
+}
+
+.appartmentInfo {
+  flex: 1 1 auto;
+
+  h1 {
+    color: var(--color-primary);
+    font-weight: var(--fw-medium);
+    font-size: 2.25rem;
+    margin-bottom: 0.4rem;
+
+    @include mixin.xs {
+      font-size: 1.125rem;
+    }
+  }
+
+  .location {
+    font-weight: var(--fw-medium);
+    font-size: 1.125rem;
+
+    @include mixin.xs {
+      font-size: 0.875rem;
+    }
+  }
+
+  .tagsWraper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+    margin: 20px 0 10px 0;
+
+    @include mixin.xs {
+      margin: 10px 0 10px 0;
+    }
+
+    .tag {
+      background-color: var(--color-primary);
+      font-weight: var(--fw-bold);
+      font-size: 0.875rem;
+      color: #fff;
+      padding: 0.25rem 2.6rem;
+      margin-bottom: 10px;
+      border-radius: 10px;
+
+      @include mixin.xs {
+        padding: 0.13rem 1.3rem;
+        font-size: 0.75rem;
+      }
+    }
+  }
+}
+
+.ratingHostWraper {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 27px;
+  min-width: fit-content;
+  padding-left: 10px;
+
+  @include mixin.xs {
+    flex-direction: row-reverse;
+    min-width: auto;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 0;
+  }
+
+  .hostWraper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .hostName {
+      color: var(--color-primary);
+      font-weight: var(--fw-medium);
+      font-size: 1.125rem;
+      text-align: right;
+
+      @include mixin.xs {
+        font-size: 0.75rem;
+      }
+    }
+
+    .hostPicture {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 100%;
+
+      @include mixin.xs {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+  }
+}
+
+h3 {
+  font-size: 1.125rem;
+  font-weight: var(--fw-bold);
+
+  @include mixin.xs {
+    font-size: 0.813rem;
+  }
+}

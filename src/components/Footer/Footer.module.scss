@@ -1,3 +1,5 @@
+@use "../../assets/styles/mixins" as mixin;
+
 .footer {
   height: 209px;
   background: #000;
@@ -7,4 +9,9 @@
 
   font-size: 1.5rem;
   font-weight: var(--fw-medium);
+
+  @include mixin.xs {
+    font-size: 0.75rem;
+    gap: 20px;
+  }
 }

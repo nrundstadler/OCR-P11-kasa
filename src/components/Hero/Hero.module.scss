@@ -1,8 +1,14 @@
+@use "../../assets/styles/mixins" as mixin;
+
 .hero {
   position: relative;
   height: 223px;
   overflow: hidden;
   border-radius: 20px;
+
+  @include mixin.xs {
+    height: 111px;
+  }
 
   &:before {
     content: "";
@@ -29,5 +35,12 @@
     font-size: 2.5rem;
     font-weight: var(--fw-bold);
     text-align: center;
+
+    @include mixin.xs {
+      font-size: 1.5rem;
+      left: 0;
+      transform: translate(0, -50%);
+      padding: 0 15px;
+    }
   }
 }
