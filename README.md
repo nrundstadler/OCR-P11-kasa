@@ -2,6 +2,8 @@
 
 11ème projet de la formation "Développeur d'application JavaScript React" d'OpenClassrooms.
 
+La version live de ce projet est disponible sur [Github Pages](https://nrundstadler.github.io/OCR-P11-kasa/).
+
 ## 🌍 Présentation
 
 Ce projet consistait à développer le **front-end** d'une application web pour Kasa, une plateforme fictive de location d'appartements entre particuliers. L'objectif était de créer une expérience utilisateur moderne et réactive en utilisant **React** et **React Router** pour gérer la navigation.
