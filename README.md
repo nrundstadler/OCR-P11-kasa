@@ -32,7 +32,7 @@ Le développement s'est centré sur la création de **composants réutilisables*
 
    ```bash
    git clone https://github.com/nrundstadler/OCR-P11-kasa.git
-   cd kasa
+   cd OCR-P11-kasa
    ```
 
 2. Installez les dépendances :
