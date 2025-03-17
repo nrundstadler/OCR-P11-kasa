@@ -2,6 +2,8 @@
 
 11ème projet de la formation "Développeur d'application JavaScript React" d'OpenClassrooms.
 
+![Capture d'écran de la page d'accueil](./docs/screenshots/home.jpg)
+
 La version live de ce projet est disponible sur [Github Pages](https://nrundstadler.github.io/OCR-P11-kasa/).
 
 ## 🌍 Présentation
