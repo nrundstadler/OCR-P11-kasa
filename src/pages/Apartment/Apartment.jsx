@@ -8,6 +8,7 @@ import Carousel from "../../components/Carousel/Carousel";
 import StarRating from "../../components/StarRating/StarRating";
 import Collapse from "../../components/Collapses/Collapse/Collapse";
 import CollapsesContainer from "../../components/Collapses/CollapsesContainer/CollapsesContainer";
+import Tags from "../../components/Tags/Tags";
 
 function Apartment() {
   // Extract the id of the apartment from the URL
@@ -53,11 +54,7 @@ function Apartment() {
         <div className={styles.appartmentInfo}>
           <h1>{thisApartment.title}</h1>
           <h2 className={styles.location}>{thisApartment.location}</h2>
-          <div className={styles.tagsWraper}>
-            <div className={styles.tag}>Cozy</div>
-            <div className={styles.tag}>Canal</div>
-            <div className={styles.tag}>Paris 10</div>
-          </div>
+          <Tags tags={thisApartment.tags} />
         </div>
         <div className={styles.ratingHostWraper}>
           <div className={styles.hostWraper}>

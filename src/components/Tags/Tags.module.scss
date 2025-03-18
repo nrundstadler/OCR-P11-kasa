@@ -1,0 +1,27 @@
+@use "../../assets/styles/mixins" as mixin;
+
+.tagsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin: 20px 0 10px 0;
+
+  @include mixin.xs {
+    margin: 10px 0 10px 0;
+  }
+}
+
+.tag {
+  background-color: var(--color-primary);
+  font-weight: var(--fw-bold);
+  font-size: 0.875rem;
+  color: #fff;
+  padding: 0.25rem 2.6rem;
+  margin-bottom: 10px;
+  border-radius: 10px;
+
+  @include mixin.xs {
+    padding: 0.13rem 1.3rem;
+    font-size: 0.75rem;
+  }
+}
